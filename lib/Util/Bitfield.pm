@@ -109,7 +109,7 @@ of bits without overflowing.
 =end pod
 
 
-module Util::Bitfield:ver<0.0.3>:auth<github:jonathanstowe> {
+module Util::Bitfield:ver<0.0.4>:auth<github:jonathanstowe>:api<1.0> {
 
     class X::BitOverflow is Exception {
         has Int $.value is required;
@@ -149,7 +149,5 @@ module Util::Bitfield:ver<0.0.3>:auth<github:jonathanstowe> {
         }
         @bits;
     }
-
-
 }
 # vim: expandtab shiftwidth=4 ft=perl6
