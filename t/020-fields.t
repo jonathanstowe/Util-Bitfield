@@ -1,4 +1,4 @@
-#!perl6
+#!raku
 
 use v6;
 
@@ -10,7 +10,7 @@ my @tests = {
                 title   => "eight bits two from MSB",
                 size    =>  8,
                 bits    =>  2,
-                start   =>  0,                
+                start   =>  0,
                 value   =>  3,
                 target  =>  0b11000000,
                 origin  =>  0b00000000
@@ -19,7 +19,7 @@ my @tests = {
                 title   => "eight bits two from LSB",
                 size    =>  8,
                 bits    =>  2,
-                start   =>  6,                
+                start   =>  6,
                 value   =>  3,
                 target  =>  0b00000011,
                 origin  =>  0b00000000
@@ -28,7 +28,7 @@ my @tests = {
                 title   =>  "eight bits two from middle",
                 size    =>  8,
                 bits    =>  2,
-                start   =>  3,                
+                start   =>  3,
                 value   =>  3,
                 target  =>  0b00011000,
                 origin  =>  0b00000000
@@ -37,7 +37,7 @@ my @tests = {
                 title   =>  "eight bits two from middle with other bits set",
                 size    =>  8,
                 bits    =>  2,
-                start   =>  3,                
+                start   =>  3,
                 value   =>  2,
                 target  =>  0b11110111,
                 origin  =>  0b11111111
@@ -46,7 +46,7 @@ my @tests = {
                 title   => "sixteen bits two from MSB",
                 size    =>  16,
                 bits    =>  2,
-                start   =>  0,                
+                start   =>  0,
                 value   =>  3,
                 target  =>  0b1100000000000000,
                 origin  =>  0b0000000000000000
@@ -55,7 +55,7 @@ my @tests = {
                 title   => "sixteen bits two from LSB",
                 size    =>  16,
                 bits    =>  2,
-                start   =>  6,                
+                start   =>  6,
                 value   =>  3,
                 target  =>  0b0000001100000000,
                 origin  =>  0b0000000000000000
@@ -64,7 +64,7 @@ my @tests = {
                 title   =>  "sixteen bits two from middle",
                 size    =>  16,
                 bits    =>  2,
-                start   =>  3,                
+                start   =>  3,
                 value   =>  3,
                 target  =>  0b0001100000000000,
                 origin  =>  0b0000000000000000
@@ -73,7 +73,7 @@ my @tests = {
                 title   =>  "sixteen bits two from middle with other bits set",
                 size    =>  16,
                 bits    =>  2,
-                start   =>  3,                
+                start   =>  3,
                 value   =>  2,
                 target  =>  0b1111011111111111,
                 origin  =>  0b1111111111111111
@@ -103,4 +103,4 @@ for ^2**8 -> $i {
 
 
 done-testing;
-# vim: expandtab shiftwidth=4 ft=perl6
+# vim: expandtab shiftwidth=4 ft=raku

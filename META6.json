@@ -1,6 +1,6 @@
 {
   "name": "Util::Bitfield",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "auth": "github:jonathanstowe",
   "api": "1.0",
   "description": "Utility subroutines for working with bitfields",
@@ -11,6 +11,7 @@
     "email" : "jns+gh@gellyfish.co.uk"
   },
   "perl": "6.*",
+  "raku": "6.*",
   "resources": [
   ],
   "build-depends": [
@@ -32,5 +33,5 @@
   "authors": [
     "Jonathan Stowe <jns+gh@gellyfish.co.uk>"
   ],
-  "meta-version": "0"
+  "meta-version": "1"
 }

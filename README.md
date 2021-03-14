@@ -2,11 +2,12 @@
 
 Utility subroutines for working with bitfields
 
-[![Build Status](https://travis-ci.org/jonathanstowe/Util-Bitfield.svg?branch=master)](https://travis-ci.org/jonathanstowe/Util-Bitfield)
+![Build Status](https://github.com/jonathanstowe/Util-Bitfield/workflows/CI/badge.svg)
+
 
 ## Synopsis
 
-```perl6
+```raku
 
 use Util::Bitfield;
 
@@ -46,8 +47,7 @@ within a larger integer as smaller integers.
 
 ## Installation
 
-Assuming you have a working Rakudo Perl 6 installation you should be able to
-install this with *zef* :
+Assuming you have a working Rakudo installation you should be able to install this with *zef* :
 
     # From the source directory
    
@@ -71,4 +71,4 @@ This is free software.
 
 Please see the [LICENCE](LICENCE) file in the distribution
 
-© Jonathan Stowe 2016, 2017, 2019
+© Jonathan Stowe 2016 - 2021

@@ -62,7 +62,7 @@ direction,)
 Also if you are getting the data as individual bytes
 and constructing a larger word from them then care
 may be needed to determine the correct "endianess"
-of the data when combining the bytes into a Perl
+of the data when combining the bytes into a Raku
 Int.
 
 =head2 extract-bits
@@ -75,6 +75,14 @@ supplied if it is other than 32 (an arbitrary choice based on what was most
 common in what I was working on,) this should be the native or source bit size
 of the structure that holds the data (e.g.the MP3 frame header is the first
 4 bytes,) it is typical this will be some even multiple of 8.
+
+=head2 extract-bits-list
+
+    sub extract-bits-list(Int $value, Int $bits, Int $word-size = 32 where { $_ %% $bits } )
+
+This extracts a list of integers of C<$bits> width from C<$value> which has C<$word-size>
+(which must be an exact multiple of C<bits>.)  This simply calls C<extract-bits> for
+each C<$bits> in C<$value>.
 
 =head2 insert-bits
 
@@ -109,7 +117,7 @@ of bits without overflowing.
 =end pod
 
 
-module Util::Bitfield:ver<0.0.4>:auth<github:jonathanstowe>:api<1.0> {
+module Util::Bitfield:ver<0.0.5>:auth<github:jonathanstowe>:api<1.0> {
 
     class X::BitOverflow is Exception {
         has Int $.value is required;
@@ -129,8 +137,19 @@ module Util::Bitfield:ver<0.0.4>:auth<github:jonathanstowe>:api<1.0> {
         $ret;
     }
 
-    sub extract-bits(Int $value, Int $bits, Int $start = 0, Int $word-size = 32) is export(:DEFAULT){
+    sub extract-bits(Int $value, Int $bits, Int $start = 0, Int $word-size = 32) is export(:DEFAULT) {
         ($value +& make-mask($bits, $start, $word-size)) +> ( $word-size - ( $bits + $start));
+    }
+
+    sub extract-bits-list(Int $value, Int $bits, Int $word-size where { $_ %% $bits } = 32 ) is export(:DEFAULT) {
+        if $value > (2**$word-size) - 1 {
+            X::BitOverflow.new(value => $value, width => $word-size).throw;
+        }
+        my Int @out;
+        for (^( $word-size / $bits )).map( -> $v { $v * $bits } ) -> $start {
+            @out.append: extract-bits($value, 6, $start, $word-size);
+        }
+        @out;
     }
 
     sub insert-bits(Int $ins, Int $value, Int $bits, Int $start = 0, Int $word-size = 32) is export(:DEFAULT) {
@@ -150,4 +169,4 @@ module Util::Bitfield:ver<0.0.4>:auth<github:jonathanstowe>:api<1.0> {
         @bits;
     }
 }
-# vim: expandtab shiftwidth=4 ft=perl6
+# vim: expandtab shiftwidth=4 ft=raku
