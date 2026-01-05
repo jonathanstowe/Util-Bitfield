@@ -117,7 +117,7 @@ of bits without overflowing.
 =end pod
 
 
-module Util::Bitfield:ver<0.0.5>:auth<github:jonathanstowe>:api<1.0> {
+module Util::Bitfield:ver<0.1.0>:auth<zef:jonathanstowe>:api<1.0> {
 
     class X::BitOverflow is Exception {
         has Int $.value is required;

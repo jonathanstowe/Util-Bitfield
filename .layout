@@ -43,7 +43,7 @@
           "purpose": null,
           "children": [
             {
-              "name": "Bitfield.pm",
+              "name": "Bitfield.rakumod",
               "type": "file"
             }
           ]

@@ -9,7 +9,7 @@
   ],
   "meta-version": "1",
   "raku": "6.*",
-  "version": "0.0.6",
+  "version": "0.1.0",
   "depends": [
   ],
   "description": "Utility subroutines for working with bitfields",
@@ -29,7 +29,7 @@
   "api": "1.0",
   "auth": "zef:jonathanstowe",
   "provides": {
-    "Util::Bitfield": "lib/Util/Bitfield.pm"
+    "Util::Bitfield": "lib/Util/Bitfield.rakumod"
   },
   "source-url": "git://github.com/jonathanstowe/Util-Bitfield.git",
   "name": "Util::Bitfield"
